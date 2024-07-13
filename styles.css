@@ -4,7 +4,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #531c3d, #8E2DE2, #4A00E0);
+    background: linear-gradient(to right, #2d0071, #4b0099); /* Adjusted to match the color on the left */
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -22,6 +22,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .header {
@@ -40,19 +42,21 @@ body {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    width: 80%;
+    width: 100%;
     max-width: 600px;
+    margin: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
 
 p {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 40px;
 }
 
@@ -63,10 +67,15 @@ form {
 input[type="email"] {
     padding: 10px;
     font-size: 16px;
-    width: 250px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    border: none;
     border-radius: 5px;
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 input[type="submit"] {
@@ -78,9 +87,37 @@ input[type="submit"] {
     background-color: #5D17EA;
     color: white;
     transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 150px;
 }
 
 input[type="submit"]:hover {
+    background-color: #7a3bf0;
+}
+
+.membership {
+    margin-top: 20px;
+}
+
+.membership h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.membership button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #5D17EA;
+    color: white;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 150px;
+}
+
+.membership button:hover {
     background-color: #7a3bf0;
 }
 
@@ -94,8 +131,8 @@ input[type="submit"]:hover {
 }
 
 .icon {
-    width: 32px; /* Use favicon size */
-    height: 32px; /* Ensure icons are square */
+    width: 32px;
+    height: 32px;
     margin: 0 10px;
     transition: transform 0.3s ease;
 }
@@ -104,3 +141,62 @@ input[type="submit"]:hover {
     transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    input[type="email"] {
+        max-width: 100%;
+    }
+
+    input[type="submit"] {
+        max-width: 100%;
+    }
+
+    .membership h2 {
+        font-size: 20px;
+    }
+
+    .membership button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .logo-text {
+        font-size: 36px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    input[type="email"] {
+        max-width: 100%;
+    }
+
+    input[type="submit"] {
+        max-width: 100%;
+    }
+
+    .membership h2 {
+        font-size: 18px;
+    }
+
+    .membership button {
+        max-width: 200%;
+    }
+}

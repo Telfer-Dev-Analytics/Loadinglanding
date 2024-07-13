@@ -18,39 +18,26 @@
                 <input type="email" id="email" placeholder="Enter your email" required>
                 <input type="submit" value="Sign Up">
             </form>
+            <div class="membership">
+                <h2>Be a BTA Member</h2>
+                <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+                <stripe-buy-button
+                    buy-button-id="buy_btn_1PbvADEwKfHWSQrByNb2z6aE"
+                    publishable-key="pk_live_51N0roiEwKfHWSQrBBs3nI7BW3scQcSgv1F9tKdSqYHnMIdzbWZt94go1Dm0xgjBCo14ZhdRPY154v15fiKaBHTxq00a1qtEbHV"
+                    class="stripe-button"
+                ></stripe-buy-button>
+            </div>
         </div>
         <div class="footer">
             <div class="social-media">
                 <a href="https://www.linkedin.com/company/bta-uottawa/" target="_blank">
-                    <img src="linkedinblack.png" alt="LinkedIn" class="icon">
+                    <img src="linked-white-icon.webp" alt="LinkedIn" class="icon">
                 </a>
                 <a href="https://www.instagram.com/telferbta/" target="_blank">
-                    <img src="instagramblack.png" alt="Instagram" class="icon">
+                    <img src="instagram-white-icon.webp" alt="Instagram" class="icon">
                 </a>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('signup-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            fetch('https://script.google.com/macros/s/AKfycbwUeq7lKXkF8giBz1hY2_-HocYGU0fft2ByosKFHEigffkr1AeI6CZRGscpWeSoJvbviw/exec', {
-                method: 'POST',
-                body: JSON.stringify({ email: email }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    alert('Thank you for signing up!');
-                    document.getElementById('signup-form').reset();
-                } else {
-                    alert('There was an error. Please try again.');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
