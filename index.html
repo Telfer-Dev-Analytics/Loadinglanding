@@ -43,7 +43,7 @@
         document.getElementById('signup-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
-            fetch('https://script.google.com/macros/s/AKfycbxy78hXLTIee6ohZTQL1sQcRelM1D8_MGWeF-zQw6lCEgkz69P_w6-2bJQvmyalsrDZjw/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbyGuJaTn3LlG7eJ3vYy5Yv537ixKZM2Ekup3oUiOYZBcWSPoj5xeOUgXgAesEipmxNp5A/exec', {
                 method: 'POST',
                 body: JSON.stringify({ email: email }),
                 headers: {
