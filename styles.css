@@ -148,7 +148,7 @@ input[type="submit"]:hover {
 
 .footnote a {
     color: #ffffff;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
