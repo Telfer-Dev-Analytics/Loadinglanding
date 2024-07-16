@@ -1,57 +1,28 @@
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyA6pjR8bJ3JTEt-MporhAwEOPzd6VapiFQ",
-    authDomain: "emailsignup-795ab.firebaseapp.com",
-    databaseURL: "https://emailsignup-795ab-default-rtdb.firebaseio.com",
-    projectId: "emailsignup-795ab",
-    storageBucket: "emailsignup-795ab.appspot.com",
-    messagingSenderId: "601446445042",
-    appId: "1:601446445042:web:a3baa91dddd0ce61ae056b",
-    measurementId: "G-GGSSMDRG2K"
-};
+const AIRTABLE_API_URL = 'https://api.airtable.com/v0/appnFsuh41kSqhKey/signupsheet';
+const AIRTABLE_API_KEY = 'Bearer patltLOS5cYIqkpVt.c5cf67cd025935556c4b6a18f43f2796465a2865d701b0207583f3501d431d7d';
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const database = firebase.database();
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
 
-// Sign in anonymously
-auth.signInAnonymously()
-  .then(() => {
-    console.log('Signed in anonymously');
-  })
-  .catch((error) => {
-    console.error('Error signing in anonymously: ', error);
-  });
+    const response = await fetch(AIRTABLE_API_URL, {
+        method: 'POST',
+        headers: {
+            'Authorization': AIRTABLE_API_KEY,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fields: {
+                Email: email
+            }
+        })
+    });
 
-// Function to subscribe email
-function subscribeEmail(email) {
-    const user = auth.currentUser;
-    if (!user) {
-        console.error('No authenticated user found');
-        alert('Subscription failed. Please try again.');
-        return;
-    }
-
-    const reference = database.ref('subscribers/' + user.uid + '/' + Date.now());
-    reference.set({
-        email: email,
-        uid: user.uid,
-        timestamp: new Date().toISOString()
-    })
-    .then(() => {
+    if (response.ok) {
         alert('Subscribed successfully!');
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-        alert('Subscription failed. Please try again.');
-    });
-}
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        let email = document.getElementById('email').value;
-        subscribeEmail(email);
-    });
+        e.target.email.value = '';  // Clear the form
+    } else {
+        const error = await response.json();
+        alert('Error: ' + error.error.message);
+    }
 });
