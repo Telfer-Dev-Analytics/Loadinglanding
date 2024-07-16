@@ -1,4 +1,4 @@
-// Web app's Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyA6pjR8bJ3JTEt-MporhAwEOPzd6VapiFQ",
     authDomain: "emailsignup-795ab.firebaseapp.com",
@@ -8,8 +8,7 @@ const firebaseConfig = {
     messagingSenderId: "601446445042",
     appId: "1:601446445042:web:a3baa91dddd0ce61ae056b",
     measurementId: "G-GGSSMDRG2K"
-  };
-
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
