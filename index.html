@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+        import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA6pjR8bJ3JTEt-MporhAwEOPzd6VapiFQ",
+            authDomain: "emailsignup-795ab.firebaseapp.com",
+            projectId: "emailsignup-795ab",
+            storageBucket: "emailsignup-795ab.appspot.com",
+            messagingSenderId: "601446445042",
+            appId: "1:601446445042:web:a3baa91dddd0ce61ae056b",
+            measurementId: "G-GGSSMDRG2K"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        // Function to subscribe email
+        async function subscribeEmail(email) {
+            try {
+                const docRef = await addDoc(collection(db, "subscribers"), {
+                    email: email,
+                    timestamp: new Date()
+                });
+                console.log("Document written with ID: ", docRef.id);
+                alert('Subscribed successfully!');
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert('Subscription failed. Please try again.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('signupForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                let email = document.getElementById('email').value;
+                subscribeEmail(email);
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="overlay">
@@ -14,11 +59,11 @@
         <div class="container">
             <h1>Coming Soon</h1>
             <p>In the very near future, the development team will be launching our new and improved website. But for now, sign up below to be among the first to know when we officially launch.</p>
-            <form id="signup-form">
-                <input type="email" id="email" placeholder="Enter your email" required>
-                <input type="submit" value="Sign Up">
+            <form id="signupForm">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="submit" value="Subscribe">
             </form>
-            <div class="membership">
+            <div class="membership">               
                 <h2>Be a BTA Member</h2>
                 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
                 <stripe-buy-button
@@ -37,34 +82,11 @@
                     <img src="instagram-white-icon.webp" alt="Instagram" class="icon">
                 </a>
             </div>
+            <div class="footnote">
+                Room 2105M, 12th Floor, 55 Laurier Ave E, Ottawa, ON K1N 6N5<br>
+                Contact us at: <a href="mailto:admin@telerbta.com">admin@telerbta.com</a>
+            </div>
         </div>
     </div>
-    <script>
-        document.getElementById('signup-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            fetch('https://script.google.com/macros/s/AKfycbzac7j_NYJ1U2uGihkkL7raYTlCctjJX3ahAQS8Hi_7mtNZiyZMmLvzF0LM3B7an1u7eQ/exec', {
-                method: 'POST',
-                body: JSON.stringify({ email: email }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    alert('Thank you for signing up!');
-                    document.getElementById('signup-form').reset();
-                } else {
-                    alert('There was an error. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error. Please try again.');
-            });
-        });
-    </script>
 </body>
 </html>
-
