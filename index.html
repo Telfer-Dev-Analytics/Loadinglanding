@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Sponsor Slider</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+    <link rel="icon" href="images/logos/favicon-btalogo.png" type="image/x-icon">
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="index.html">
+            <img src="images/btanode.png" alt="BTA Logo">
+        </a>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="index.html">Events</a></li>
+        <li><a href="index.html">Team</a></li>
+        <li><a href="index.html">FAQ</a></li>
+    </ul>
+    <!-- Join Us button separated from the rest of the navigation links -->
+    <!-- Navigation Join Us Button -->
+    <stripe-buy-button
+    buy-button-id="buy_btn_1PdH2sEwKfHWSQrBNle6pX6w"
+    publishable-key="pk_live_51N0roiEwKfHWSQrBBs3nI7BW3scQcSgv1F9tKdSqYHnMIdzbWZt94go1Dm0xgjBCo14ZhdRPY154v15fiKaBHTxq00a1qtEbHV">
+</stripe-buy-button>
+
+</nav>
+
+     <!-- Video Section -->
+     <section class="video-container">
+        <video id="landingVideo" autoplay muted playsinline>
+            <source src="images/intro.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+<!-- Sponsors Section with Title and Video -->
+<section class="sponsors-section">
+    <div class="sponsors-title">
+        <h2>Bridging the gap between Business and Technology</h2>
+        <!-- Sponsors Section Join Us Button -->
+        <stripe-buy-button
+        buy-button-id="buy_btn_1PdH2sEwKfHWSQrBNle6pX6w"
+        publishable-key="pk_live_51N0roiEwKfHWSQrBBs3nI7BW3scQcSgv1F9tKdSqYHnMIdzbWZt94go1Dm0xgjBCo14ZhdRPY154v15fiKaBHTxq00a1qtEbHV">
+    </stripe-buy-button>
+
+    </div>
+    <div class="sponsors-video">
+        <video id="sponsorVideo" autoplay loop muted>
+            <source src="images/main1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+<!-- Events Section with Title and Video -->
+<section class="events-section">
+    <div class="events-video">
+        <video id="eventsVideo" autoplay loop muted>
+            <source src="images/events.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="events-title">
+        <h2>Explore BTA's journey</h2>
+        <a href="https://www.instagram.com/telferbta/" class="join-us-button">STAY CONNECTED</a>
+    </div>
+</section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events-section">
+        <h2 class="main-header">Upcoming Events</h2>
+        <div class="event">
+            <div class="event-date">
+                <span class="date">18</span>
+                <span class="month">September</span>
+            </div>
+            <div class="event-details">
+                <h3>Annual General Meeting</h3>
+                <p>Join us for our 2nd Annual General Meeting to learn more about the Business Technology Association and how you can get involved!                </p>
+                <p>Location: DMS 4101</p>
+                <p>Time: 5 - 7 pm</p>
+                <a href="https://airtable.com/appjmtSpX7gVCTMJW/pag0AtWDfK7WS4U02/form" class="event-register">REGISTER</a>
+
+            </div>
+        </div>
+        <div class="event">
+            <div class="event-date">
+                <span class="date">26</span>
+                <span class="month">September</span>
+            </div>
+            <div class="event-details">
+                <h3>Networking Event</h3>
+                <p>Empowering Future Leaders: Bridging Academia and Industry</p>
+                <p>Location: DMS 4101</p>
+                <p>Time: 1 - 5 pm</p>
+                <a href="https://airtable.com/appjmtSpX7gVCTMJW/pag0AtWDfK7WS4U02/form" class="event-register">REGISTER</a>
+            </div>
+        </div>
+        <div class="event">
+            <div class="event-date">
+                <span class="date">29</span>
+                <span class="month">October</span>
+            </div>
+            <div class="event-details">
+                <h3>Women in Tech Panel</h3>
+                <p>Join our Women in Tech panel for discussions, a Q&A session, and networking opportunities with industry leaders. Connect, learn, and grow with fellow tech professionals!</p>
+                <p>Location: DMS 4101</p>
+                <p>Time: 5 - 7 pm</p>
+                <button class="event-register">Register</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us - FAQ Section -->
+    <header>
+        <h1 class="main-header">CONTACT US</h1>
+        <h2 class="sub-header">Frequently Asked Questions</h2>
+    </header>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-item">
+            <h3 class="question">
+                What kind of events do you host?
+                <span class="arrow"></span>
+            </h3>
+            <p class="answer">We offer a diverse range of events, from AI and coding workshops to thrilling case and pitch competitions. Our standout event last year was BTCC - the Business Technology Case Competition. What made BTCC unique was its focus on real-world tech scenarios, pushing participants to think differently. We partnered with three other schools nationwide, making it an incredible experience for everyone involved.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h3 class="question">
+                How will joining BTA benefit me?
+                <span class="arrow"></span>
+            </h3>
+            <p class="answer">Joining BTA means gaining access to exclusive opportunities that other clubs might not offer. While other clubs focus on traditional areas like marketing or finance, we specialise in preparing you for the rapidly evolving tech industry. Plus, technology is a game-changer for all fields—ever heard of fintech? That’s just one example of how tech and other disciplines go hand in hand.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="question">
+                Are there opportunities for leadership or involvement in projects?
+                <span class="arrow"></span>
+            </h3>
+            <p class="answer">Absolutely! We’re on the lookout for two first-year reps for the upcoming school year. As a first-year rep, you’ll dive into event planning and gain valuable experience working with our teams and understanding how our club operates behind the scenes.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h3 class="question">
+                Do you offer networking with industry professionals?
+                <span class="arrow"></span>
+            </h3>
+            <p class="answer">Every event we organise includes networking opportunities with top industry professionals. You’ll get the chance to meet and learn from experts from companies like IBM, Google, and Amazon. Don’t miss out on connecting with some of the biggest names in tech!
+            </p>
+        </div>
+        <div class="faq-item">
+            <h3 class="question">
+                What are the membership fees and what do they cover?
+                <span class="arrow"></span>
+            </h3>
+            <p class="answer">Membership is just $10 for the whole year! This fee covers access to all our events throughout both semesters, including costs for event planning, prizes, and guest speakers.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>55 Laurier Ave E, Ottawa, ON K1N 6N5</p>
+            <p>Room 2105M, 12th Floor</p>
+            <p>Email: admin@telferbta.com</p>
+        </div>
+        <!-- HTML for Signup Form -->
+
+
+<!-- HTML for Contact Form -->
+<form id="contactForm">
+    <input type="text" name="name" placeholder="Name *" required>
+    <input type="email" name="email" placeholder="Email *" required>
+    <textarea name="message" placeholder="Enter Your Message" required></textarea>
+    <button type="submit">Submit</button>
+</form>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map">
+        <h2 class="main-header">Our Location</h2>
+        <div id="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.273173621502!2d-75.68972822372814!3d45.423994371073356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0506ddbc0161%3A0xdeaf56e07d41e715!2sDesmarais%20Building%2C%2055%20Laurier%20Ave%20E%2C%20Ottawa%2C%20ON%20K1N%206N5!5e0!3m2!1sen!2sca!4v1724000860606!5m2!1sen!2sca" 
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+<!-- Team Section -->
+<section class="team-section">
+    <h2 class="team-title">Meet the Team!</h2>
+    <div class="team-controls">
+        <!-- Scroll buttons -->
+        <button class="scroll-button left" id="scrollLeftButton">&#10094;</button>
+
+        <div class="team-members-grid" data-clone="true">
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/yazankhasawneh/?originalSubdomain=ca">
+                    <img src="images/headshots/yazan-khasawaneh.jpg" alt="Yazan Khasawneh">
+                    <div class="member-info">
+                        <p>Yazan Khasawneh</p>
+                        <p>President</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/davidjeanty/">
+                    <img src="images/headshots/david-jeanty.jpg" alt="David Jeanty">
+                    <div class="member-info">
+                        <p>David Jeanty</p>
+                        <p>Vice President, Internal Affairs</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/adithya-s-p/">
+                    <img src="images/headshots/Adithya-Panicker.jpg" alt="Adithya Panicker">
+                    <div class="member-info">
+                        <p>Adithya Panicker</p>
+                        <p>Vice President, Finance</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/aahana-bagga/">
+                    <img src="images/headshots/aahana-bagga.jpg" alt="Aahana Bagga">
+                    <div class="member-info">
+                        <p>Aahana Bagga</p>
+                        <p>Vice President, Corporate Relations</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/aditya1996/">
+                    <img src="images/headshots/aditya-maheshwari.jpg" alt="Aditya Maheshwari">
+                    <div class="member-info">
+                        <p>Aditya Maheshwari</p>
+                        <p>Vice President, Events</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/reema-alwadi/">
+                    <img src="images/headshots/reema-alwadi.jpg" alt="Reema Alwadi">
+                    <div class="member-info">
+                        <p>Reema Alwadi</p>
+                        <p>Vice President, Development & Analytics</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/aashi-grover/">
+                    <img src="images/headshots/aashi-grover.jpg" alt="Aashi Grover">
+                    <div class="member-info">
+                        <p>Aashi Grover</p>
+                        <p>Vice President, Marketing</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/mirazakhour/">
+                    <img src="images/headshots/Mira-zakhour.jpg" alt="Mira Zakhour">
+                    <div class="member-info">
+                        <p>Mira Zakhour</p>
+                        <p>Director of Internal Affairs</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="###">
+                    <img src="images/headshots/icon.png" alt="Maude Kenfack">
+                    <div class="member-info">
+                        <p>Maude Kenfack</p>
+                        <p>Director of Francophone Affairs</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/anniewang2/">
+                    <img src="images/headshots/Annie-Wang.jpg" alt="Annie Wang">
+                    <div class="member-info">
+                        <p>Annie Wang</p>
+                        <p>Director of Finance</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/eliasfatine/">
+                    <img src="images/headshots/elias-fatine.jpg" alt="Elias Fatine">
+                    <div class="member-info">
+                        <p>Elias Fatine</p>
+                        <p>Director of Development</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/klevin-mutombo-353532298/">
+                    <img src="images/headshots/klevin-mutombo.jpg" alt="Klevin Mutombo">
+                    <div class="member-info">
+                        <p>Klevin Mutombo</p>
+                        <p>Director of Development</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/noura-offia/">
+                    <img src="images/headshots/Noura-offia.jpg" alt="Noura Paule-Offia">
+                    <div class="member-info">
+                        <p>Noura Paule-Offia</p>
+                        <p>Director of Development</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/basant-chawla/">
+                    <img src="images/headshots/Basant-chawla.jpg" alt="Basant Chawla">
+                    <div class="member-info">
+                        <p>Basant Chawla</p>
+                        <p>Director of Events</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/fatima-jan29/">
+                    <img src="images/headshots/icon.png" alt="Fatima Jan">
+                    <div class="member-info">
+                        <p>Fatima Jan</p>
+                        <p>Director of Events</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/rami-mouaki-benani-b1214026b/">
+                    <img src="images/headshots/icon.png" alt="Rami Mouaki">
+                    <div class="member-info">
+                        <p>Rami Mouaki</p>
+                        <p>Director of Events</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/alexandraganguli/">
+                    <img src="images/headshots/Alexandra-ganguli.jpg" alt="Alexandra Ganguli">
+                    <div class="member-info">
+                        <p>Alexandra Ganguli</p>
+                        <p>Director of Events</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/benjamin-whiting-/">
+                    <img src="images/headshots/Banjamin-Whiting.jpg" alt="Benjamin Marcus Whiting">
+                    <div class="member-info">
+                        <p>Benjamin Marcus Whiting</p>
+                        <p>Director of Corporate Relations</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/nour-ben-ali/">
+                    <img src="images/headshots/Nour-ali.jpg" alt="Nour Ben Ali">
+                    <div class="member-info">
+                        <p>Nour Ben Ali</p>
+                        <p>Director of Corporate Relations</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/luka-bernabo-135bb5251/">
+                    <img src="images/headshots/luka-bernabo.jpg" alt="Luka Bernabo">
+                    <div class="member-info">
+                        <p>Luka Bernabo</p>
+                        <p>Director of Corporate Relations</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/stefan-zivkovic-a83325228/">
+                    <img src="images/headshots/stefan-zivkovic.jpg" alt="Stefan Zivkovic">
+                    <div class="member-info">
+                        <p>Stefan Zivkovic</p>
+                        <p>Director of Corporate Relations</p>
+                        <p>(Innovative Programs)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/arjun-balachandran-878137285/">
+                    <img src="images/headshots/arjun-balachadran.jpg" alt="Arjun Balachandran">
+                    <div class="member-info">
+                        <p>Arjun Balachandran</p>
+                        <p>Director of Marketing</p>
+                        <p>(Graphic Design)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/ayah-chaouni-ba1195270/">
+                    <img src="images/headshots/ayah-chaouni.jpg" alt="Ayah Chaouni">
+                    <div class="member-info">
+                        <p>Ayah Chaouni</p>
+                        <p>Director of Marketing</p>
+                        <p>(Graphic Design)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/lujain-future/">
+                    <img src="images/headshots/lujain-naser.jpg" alt="Lujain Naser">
+                    <div class="member-info">
+                        <p>Lujain Naser</p>
+                        <p>Director of Marketing</p>
+                        <p>(Graphic Design)</p>
+                    </div>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="https://www.linkedin.com/in/farah-elhashani-029a832a4/">
+                    <img src="images/headshots/farah-elhashani.jpg" alt="Farah Elhashani">
+                    <div class="member-info">
+                        <p>Farah Elhashani</p>
+                        <p>Director of Marketing</p>
+                        <p>(Multimedia Creator)</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <button class="scroll-button right" id="scrollRightButton">&#10095;</button>
+    </div> <!-- Correctly closing the team-controls div -->
+</section>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="https://www.linkedin.com/company/bta-uottawa/" target="_blank">
+                <img src="images/logos/linked-white-icon.webp" alt="LinkedIn" class="icon">
+            </a>
+            <a href="https://www.instagram.com/telferbta/" target="_blank">
+                <img src="images/logos/instagram-white-icon.webp" alt="Instagram" class="icon">
+            </a>
+        </div>
+    </div>
+    <div class="newsletter">
+        <form id="signupForm">
+            <input type="email" name="email" placeholder="Subscribe to our newsletter" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</footer>
+
+
+<!-- JavaScript File -->
+<script src="script.js"></script>
+</body>
+</html>
+

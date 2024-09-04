@@ -1,0 +1,682 @@
+/* General Styles */
+body {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Headers and Titles */
+.main-header, 
+.sub-header, 
+.sponsors-title h2, 
+.events-title h2, 
+.team-title {
+    font-size: 3em; /* Default size */
+    color: transparent;
+    -webkit-text-stroke: 2px #fff; /* White stroke */
+    text-shadow: 2px 2px 0 #361515, -2px -2px 0 #5a2020, 2px -2px 0 #200970, -2px 2px 0 #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.team-title {
+    font-size: 2em; /* Specific for team title */
+    margin-bottom: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    gap: 20px;
+}
+
+.navbar-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #7455e4; /* Light purple on hover */
+}
+
+/* General Button Styles */
+button, .join-us-button, stripe-buy-button {
+    background-color: #7F00FF; /* Color from the provided image */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Hover Effects */
+button:hover, .join-us-button:hover, stripe-buy-button:hover {
+    background-color: #5A00CC; /* Slightly darker purple for hover effect */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+    .hamburger-menu {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 20;
+    }
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px 0;
+        position: absolute;
+        top: 60px;
+        right: 0;
+    }
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+/* Sections: Sponsors and Events */
+.sponsors-section, 
+.events-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    height: 50vh;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.sponsors-title, 
+.events-title {
+    flex: 1;
+    text-align: center;
+    padding-left: 10%;
+}
+
+.sponsors-video, 
+.events-video {
+    flex: 1;
+    height: 100%;
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.sponsors-video video, 
+.events-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FAQ Section */
+#faq {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.faq-item {
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #333;
+    transition: background-color 0.3s ease;
+    padding: 1px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.faq-item .question {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 10px;
+    margin: 0;
+}
+
+.faq-item .question:hover {
+    color: #7F00FF; /* Match button color on hover */
+}
+
+.faq-item.active {
+    background-color: #7F00FF; /* Match button color when active */
+}
+
+.faq-item.active .question {
+    color: #fff;
+}
+
+.answer {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 10px;
+}
+
+.faq-item.active .answer {
+    max-height: 1000px;
+    padding: 15px 10px;
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 10px;
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(225deg);
+}
+
+/* Contact Section */
+#contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.contact-info {
+    width: 40%;
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+input, 
+textarea {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+button {
+    background-color: #7F00FF; /* Match button color */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+/* Upcoming Events Section */
+.upcoming-events-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-top: 1px solid #555;
+    border-radius: 10px;
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #111;
+}
+
+.event-date {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-details {
+    flex: 1;
+    margin-left: 20px;
+    text-align: left;
+}
+
+/* Team Section */
+.team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.team-members-grid {
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1.5vw;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 0 10px;
+    padding-top: 3%;
+}
+
+.team-members-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.team-member {
+    flex: 0 0 auto;
+    width: 12vw;
+    min-width: 80px;
+    text-align: center;
+    padding: 0 10px;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.member-info {
+    color: #fff;
+    font-size: 0.8vw;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.1);
+}
+
+.team-member:hover .member-info {
+    opacity: 1;
+}
+
+.scroll-button {
+    background-color: #7F00FF; /* Match button color */
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 20;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+    position: relative;
+    top: -80px;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+footer input {
+    width: 70%;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+footer button {
+    background-color: #7F00FF; /* Match button color */
+    border: none;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Video Container */
+.video-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-header, 
+    .sub-header, 
+    .team-title, 
+    .event-details h3 {
+        font-size: 3vw;
+    }
+
+    .navbar-links a {
+        font-size: 2.5vw;
+    }
+
+    .join-us-button, 
+    .event-register {
+        font-size: 1.2vw;
+        padding: 10px 15px;
+    }
+
+    .sponsors-title h2, 
+    .events-title h2 {
+        font-size: 5.5vw;
+    }
+
+    .member-info {
+        font-size: 2vw;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .navbar {
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+
+    .navbar-logo img,
+    .join-us-button {
+        display: none;
+    }
+
+    .video-container {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    .video-container {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.sponsor-slides, .event-slides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Sponsorship and Events Section */
+.sponsors-section, 
+.events-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000; /* Match overall site background */
+    height: auto; /* Allow dynamic height based on content */
+    overflow: hidden;
+}
+
+.sponsors-title, 
+.events-title {
+    flex: 1;
+    text-align: center;
+    padding-left: 10%;
+}
+
+.sponsors-video, 
+.events-video {
+    flex: 1;
+    width: 100%; /* Full width for responsive design */
+    max-width: 100%; /* Max width to prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover area */
+}
+
+/* Shared Button Styles for Sponsorship and Events */
+.join-us-button, 
+.event-register, 
+.stripe-buy-button {
+    background-color: #7F00FF; /* Purple color from the provided image */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px; /* Margin to separate button from other content */
+}
+
+.join-us-button:hover, 
+.event-register:hover, 
+.stripe-buy-button:hover {
+    background-color: #5A00CC; /* Slightly darker purple on hover */
+}
+
+/* Visibility Toggle for Smooth Transition */
+.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset transform */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sponsors-title h2, 
+    .events-title h2 {
+        font-size: 5.5vw; /* Responsive font size for smaller screens */
+    }
+
+    .join-us-button, 
+    .event-register, 
+    .stripe-buy-button {
+        font-size: 1.2vw; /* Responsive font size for smaller screens */
+    }
+
+    .sponsors-section, 
+    .events-section {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        align-items: center;
+    }
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #000; /* Match the overall site background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between social media icons */
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between each icon */
+}
+
+.social-media a {
+    display: inline-block; /* Treat as inline-block for spacing and size control */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-media img {
+    width: 30px; /* Initial size of the images */
+    height: 30px; /* Consistent height */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.social-media img:hover {
+    transform: scale(1.2); /* Expand image slightly on hover */
+}
+
+/* Newsletter section styling for consistency */
+.newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px; /* Set a max width for the form */
+}
+
+.newsletter form {
+    display: flex;
+    padding-right: 30%;
+    gap: 10px; /* Space between input and button */
+}
+
+.newsletter input {
+    width: 100000000%;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.newsletter button {
+    background-color: #7F00FF; /* Use the purple color for the subscribe button */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #5A00CC; /* Slightly darker purple on hover */
+}
