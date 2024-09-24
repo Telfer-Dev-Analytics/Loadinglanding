@@ -76,7 +76,7 @@ button, .join-us-button, stripe-buy-button {
     border: none;
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease;
     text-align: center;
     display: inline-block;
     text-decoration: none;
