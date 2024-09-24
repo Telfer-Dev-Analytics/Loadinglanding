@@ -26,6 +26,17 @@ body {
     margin-bottom: 20px;
 }
 
+a {
+    text-decoration: none; /* Remove underline from all links */
+    color: inherit; /* Maintain the color of the parent element */
+}
+
+/* Optional hover effect for links */
+a:hover {
+    color: #7f00ff; /* Light purple on hover */
+    text-decoration: none; /* Ensure underline is not added back on hover */
+}
+
 /* Navigation Bar */
 .navbar {
     position: fixed;
@@ -107,6 +118,19 @@ button:hover, .join-us-button:hover, stripe-buy-button:hover {
     transition: all 0.3s ease;
 }
 
+/* Change to X when active */
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .navbar {
@@ -127,49 +151,106 @@ button:hover, .join-us-button:hover, stripe-buy-button:hover {
         padding: 10px 0;
         position: absolute;
         top: 60px;
+        left: 0;
         right: 0;
     }
     .navbar-links.active {
         display: flex;
     }
+    .navbar-links a {
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+        display: block;
+    }
 }
 
+
 /* Sections: Sponsors and Events */
+/* Sponsorship and Events Section */
 .sponsors-section, 
 .events-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start; /* Align items to the top */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
     background-color: #000;
-    height: 50vh;
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* Titles for Sponsorship and Events Sections */
 .sponsors-title, 
 .events-title {
     flex: 1;
     text-align: center;
-    padding-left: 10%;
+    padding-left: 0; /* No left padding */
+    margin: 0 0 20px 0; /* No margin on sides, margin at the bottom */
 }
 
+/* Video Containers */
 .sponsors-video, 
 .events-video {
     flex: 1;
-    height: 100%;
-    max-width: 50%;
-    padding-right: 20px;
+    width: 100%;
+    padding: 0; /* Remove padding around the video container */
+    margin: 0; /* Remove margin */
+    position: relative;
 }
 
+/* Video Styles with Rounded Corners */
 .sponsors-video video, 
 .events-video video {
     width: 100%;
-    height: 100vh;
-    object-fit: cover;
+    height: auto; /* Allow video to scale */
+    object-fit: cover; /* Ensure the video covers the entire container */
+    border-radius: 20px; /* Add rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure there's no margin between elements */
+.sponsors-section > *, 
+.events-section > * {
+    margin: 0; /* Remove margin between elements */
+    padding: 0; /* Remove padding between elements */
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .sponsors-title h2, 
+    .events-title h2 {
+        font-size: 5.5vw; /* Responsive font size for smaller screens */
+    }
+
+    .sponsors-video video, 
+    .events-video video {
+        border-radius: 15px; /* Slightly reduce the border-radius for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors-title h2, 
+    .events-title h2 {
+        font-size: 6vw; /* Larger headers for phones */
+    }
+
+    .sponsors-video video, 
+    .events-video video {
+        border-radius: 10px; /* Smaller border radius for phones */
+        height: auto; /* Maintain aspect ratio */
+        width: 100%;
+    }
+
+    .sponsors-section, 
+    .events-section {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 /* FAQ Section */
@@ -590,80 +671,152 @@ footer button {
 }
 
 
-/* Footer Styles */
+/* Footer */
 footer {
-    background-color: #000; /* Match the overall site background */
+    background-color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+/* Social Media Section */
 .footer-content {
     display: flex;
     align-items: center;
     gap: 20px; /* Space between social media icons */
+    width: auto; /* Allow content to adjust naturally */
 }
 
+/* Social Media Icons */
 .social-media {
     display: flex;
     align-items: center;
     gap: 20px; /* Space between each icon */
 }
 
-.social-media a {
-    display: inline-block; /* Treat as inline-block for spacing and size control */
+.social-media img {
+    width: 30px; /* Set consistent width */
+    height: 30px; /* Set consistent height */
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.social-media img {
-    width: 30px; /* Initial size of the images */
-    height: 30px; /* Consistent height */
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
-}
-
 .social-media img:hover {
-    transform: scale(1.2); /* Expand image slightly on hover */
+    transform: scale(1.2); /* Enlarge icon slightly on hover */
 }
 
-/* Newsletter section styling for consistency */
+/* Newsletter Form */
 .newsletter {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    max-width: 400px; /* Set a max width for the form */
+    gap: 10px; /* Space between input and button */
+    width: auto; /* Adjust naturally */
 }
 
 .newsletter form {
     display: flex;
-    padding-right: 30%;
+    align-items: center;
+    width: auto; /* Ensure form takes up just the space it needs */
     gap: 10px; /* Space between input and button */
 }
 
 .newsletter input {
-    width: 100000000%;
-    background-color: #333;
-    border: 1px solid #555;
-    color: #fff;
+    width: 250px; /* Set consistent width for the input */
     padding: 10px;
     font-size: 1em;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }
 
 .newsletter button {
-    background-color: #7F00FF; /* Use the purple color for the subscribe button */
+    padding: 10px;
+    font-size: 1em;
+    background-color: #7F00FF;
     border: none;
     color: #fff;
-    padding: 10px 20px;
-    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px; /* Rounded button */
 }
 
 .newsletter button:hover {
     background-color: #5A00CC; /* Slightly darker purple on hover */
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: flex-start; /* Align items to the left */
+    }
+    
+    /* Stack social media icons and newsletter vertically */
+    .footer-content {
+        margin-bottom: 20px; /* Add space between social media and newsletter form */
+        width: 100%; /* Full width */
+        justify-content: center; /* Center content */
+    }
+
+    .newsletter {
+        justify-content: flex-start; /* Align form to the left */
+        width: 100%; /* Ensure form takes full width */
+    }
+
+    .newsletter input {
+        width: 100%; /* Make the input take full width */
+    }
+
+    .newsletter button {
+        width: auto; /* Allow button to adjust its size naturally */
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-content {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .newsletter {
+        flex-direction: column; /* Stack input and button vertically on small screens */
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .newsletter input {
+        width: 100%; /* Full width for the input field */
+        margin-bottom: 10px; /* Add space between input and button */
+    }
+
+    .newsletter button {
+        width: 100%; /* Make button full width */
+    }
+}
+
+button, .join-us-button, .event-register, .newsletter button {
+    background-color: #7F00FF; /* Purple background */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Consistent padding */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove borders */
+    font-size: 1em; /* Consistent font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Hover effects */
+    text-align: center; /* Centered text */
+    display: inline-block; /* Inline-block display */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Hover Effects for Buttons */
+button:hover, .join-us-button:hover, .event-register:hover, .newsletter button:hover {
+    background-color: #5A00CC; /* Slightly darker purple on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
