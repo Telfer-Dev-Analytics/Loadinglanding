@@ -14,9 +14,7 @@ body {
 .events-title h2, 
 .team-title {
     font-size: 3em; /* Default size */
-    color: transparent;
-    -webkit-text-stroke: 2px #fff; /* White stroke */
-    text-shadow: 2px 2px 0 #361515, -2px -2px 0 #5a2020, 2px -2px 0 #200970, -2px 2px 0 #fff;
+    color: white;
     font-weight: bold;
     text-align: center;
     padding: 20px;
@@ -69,9 +67,10 @@ body {
     color: #7455e4; /* Light purple on hover */
 }
 
+
 /* General Button Styles */
 button, .join-us-button, stripe-buy-button {
-    background-color: #7F00FF; /* Color from the provided image */
+    /*background-color: #7F00FF; /* Color from the provided image */
     color: #fff; /* White text */
     padding: 10px 20px;
     border-radius: 5px;
@@ -86,7 +85,7 @@ button, .join-us-button, stripe-buy-button {
 
 /* Hover Effects */
 button:hover, .join-us-button:hover, stripe-buy-button:hover {
-    background-color: #5A00CC; /* Slightly darker purple for hover effect */
+    /*background-color: #5A00CC; /* Slightly darker purple for hover effect */
     transform: scale(1.05); /* Slight zoom effect */
 }
 
@@ -171,7 +170,7 @@ button:hover, .join-us-button:hover, stripe-buy-button:hover {
 .sponsors-video video, 
 .events-video video {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
 }
 
@@ -437,7 +436,7 @@ footer button {
 /* Video Container */
 .video-container {
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     overflow: hidden;
     position: relative;
 }
@@ -449,12 +448,13 @@ footer button {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    /* TODO: Add responsive font for smaller screens 
     .main-header, 
     .sub-header, 
     .team-title, 
     .event-details h3 {
         font-size: 3vw;
-    }
+    } */
 
     .navbar-links a {
         font-size: 2.5vw;
@@ -462,8 +462,9 @@ footer button {
 
     .join-us-button, 
     .event-register {
-        font-size: 1.2vw;
+        /*font-size: 1.2vw;  Font size is too small*/
         padding: 10px 15px;
+        text-decoration: none;
     }
 
     .sponsors-title h2, 
@@ -558,22 +559,20 @@ footer button {
 
 /* Shared Button Styles for Sponsorship and Events */
 .join-us-button, 
-.event-register, 
-.stripe-buy-button {
+.event-register{
     background-color: #7F00FF; /* Purple color from the provided image */
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: 20px; /* Margin to separate button from other content */
 }
 
 .join-us-button:hover, 
-.event-register:hover, 
-.stripe-buy-button:hover {
+.event-register:hover {
     background-color: #5A00CC; /* Slightly darker purple on hover */
 }
 
@@ -590,12 +589,7 @@ footer button {
         font-size: 5.5vw; /* Responsive font size for smaller screens */
     }
 
-    .join-us-button, 
-    .event-register, 
-    .stripe-buy-button {
-        font-size: 1.2vw; /* Responsive font size for smaller screens */
-    }
-
+   
     .sponsors-section, 
     .events-section {
         flex-direction: column; /* Stack content vertically on smaller screens */
@@ -680,3 +674,4 @@ footer {
 .newsletter button:hover {
     background-color: #5A00CC; /* Slightly darker purple on hover */
 }
+
