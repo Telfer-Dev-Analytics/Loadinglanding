@@ -70,7 +70,6 @@ body {
 
 /* General Button Styles */
 button, .join-us-button, stripe-buy-button {
-    /*background-color: #7F00FF; /* Color from the provided image */
     color: #fff; /* White text */
     padding: 10px 20px;
     border-radius: 5px;
@@ -85,7 +84,6 @@ button, .join-us-button, stripe-buy-button {
 
 /* Hover Effects */
 button:hover, .join-us-button:hover, stripe-buy-button:hover {
-    /*background-color: #5A00CC; /* Slightly darker purple for hover effect */
     transform: scale(1.05); /* Slight zoom effect */
 }
 
