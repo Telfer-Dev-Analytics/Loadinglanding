@@ -64,7 +64,7 @@ body {
 }
 
 .navbar-links a:hover {
-    color: #7455e4; /* Light purple on hover */
+    color: #7f00ff; /* Light purple on hover */
 }
 
 
@@ -270,7 +270,7 @@ textarea {
 }
 
 button {
-    background-color: #7F00FF; /* Match button color */
+    background-color: #7f00ff; /* Match button color */
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -434,74 +434,68 @@ footer button {
 /* Video Container */
 .video-container {
     width: 100%;
-    height: fit-content;
-    overflow: hidden;
-    position: relative;
+    height: auto; /* Adjust based on content */
+    padding-top: 56.25%; /* Aspect ratio for 16:9 video (adjust as needed) */
+    position: relative; /* Needed for the absolutely positioned iframe/video */
+    overflow: hidden; /* Hide overflow content */
 }
 
 .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire container */
 }
 
 /* Responsive Adjustments */
+/* For tablet-sized screens (width <= 768px) */
 @media (max-width: 768px) {
-    /* TODO: Add responsive font for smaller screens 
+    .video-container {
+        padding-top: 56.25%; /* Retain the aspect ratio */
+    }
+
+    .video-container video {
+        object-fit: cover; /* Ensure the video covers the container without stretching */
+    }
+}
+
+/* For phone-sized screens (width <= 480px) */
+@media (max-width: 480px) {
+    .video-container {
+        padding-top: 75%; /* Increase padding for 4:3 aspect ratio for smaller screens */
+    }
+
+    .video-container video {
+        object-fit: contain; /* Ensure the video fits well without being cropped */
+    }
+
+    /* Adjusting some sections for better readability on smaller screens */
     .main-header, 
     .sub-header, 
     .team-title, 
     .event-details h3 {
-        font-size: 3vw;
-    } */
+        font-size: 4vw; /* Adjust font size for smaller screens */
+    }
 
     .navbar-links a {
-        font-size: 2.5vw;
+        font-size: 3.5vw; /* Slightly larger for easier navigation */
     }
 
     .join-us-button, 
     .event-register {
-        /*font-size: 1.2vw;  Font size is too small*/
-        padding: 10px 15px;
-        text-decoration: none;
+        font-size: 3vw; /* Increase button size for better accessibility */
+        padding: 10px;
     }
 
     .sponsors-title h2, 
     .events-title h2 {
-        font-size: 5.5vw;
+        font-size: 6vw; /* Larger headers for phones */
     }
 
     .member-info {
-        font-size: 2vw;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .navbar {
-        justify-content: flex-end;
-        padding-right: 20px;
-    }
-
-    .navbar-logo img,
-    .join-us-button {
-        display: none;
-    }
-
-    .video-container {
-        padding-top: 30px;
-    }
-}
-
-@media (max-width: 700px) {
-    .video-container {
-        padding-top: 30px;
-    }
-}
-
-@media (max-width: 760px) {
-    .navbar-links.active {
-        display: flex;
+        font-size: 3vw; /* Make member info readable on smaller screens */
     }
 }
 
