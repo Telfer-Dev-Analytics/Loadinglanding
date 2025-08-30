@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Telfer-Dev-Analytics.github.io/telferbta-new-website",
+  "homepage": "https://github.com/Telfer-Dev-Analytics/Loadinglanding",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
