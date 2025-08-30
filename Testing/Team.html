@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Carousels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .spotlight {
+            box-shadow: 0 0 70px rgba(255, 255, 255, 1);
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease-in-out;
+        }
+        .side-avatar {
+            opacity: 0.5;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center w-screen min-h-screen gap-16 py-10 bg-gray-100 text-gray-900 transition-colors duration-300" id="themeContainer">
+    
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="absolute top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition">Toggle Theme</button>
+    
+    <h1 class="text-4xl font-bold text-center mb-6">Meet the Teams</h1>
+    
+    <div class="flex flex-col items-center gap-12 w-full px-6">
+        <!-- Render 7 Carousels -->
+        <script>
+            const teams = ["Development & Analytics", "Marketing & Outreach", "Operations", "Finance", "Consulting", "Technology", "Events"];
+            const images = ["/IMG_6512.PNG", "/IMG_6513.PNG", "/IMG_6514.PNG"];
+            const names = ["John Doe", "Jane Smith", "Alex Johnson"];
+            const linkedinLinks = ["#", "#", "#"];
+
+            for (let i = 0; i < 7; i++) {
+                document.write(`
+                    <div class='relative flex flex-col items-center justify-center w-screen bg-cover bg-center bg-no-repeat p-6 rounded-lg shadow-lg min-h-[60vh] transition-colors duration-300' style="background-image: url('/fss.jpeg');">
+                        <h2 class='text-3xl font-semibold mb-4 text-center text-white drop-shadow-lg'>${teams[i]}</h2>
+                        <div class='relative w-full flex items-center justify-center gap-8'>
+                            <button class='absolute left-4 p-4 bg-blue-600 rounded-full hover:bg-blue-700 z-10 shadow-md transition duration-300 prevBtn'>
+                                <i data-lucide='chevron-left' class='w-8 h-8 text-white'></i>
+                            </button>
+                            
+                            <div class='flex flex-col items-center gap-4'>
+                                <img class='object-cover rounded-lg shadow-lg side-avatar w-[20vw] max-w-40 h-auto left-avatar' src='${images[0]}'>
+                                <p class='text-lg opacity-50 left-caption text-white drop-shadow-lg'>${names[0]}</p>
+                            </div>
+                            <div class='flex flex-col items-center'>
+                                <img class='object-cover rounded-lg shadow-lg spotlight w-[30vw] max-w-56 h-auto main-avatar' src='${images[1]}'>
+                                <p class='text-xl flex items-center gap-2 main-caption text-white drop-shadow-lg'>${names[1]} <a href='${linkedinLinks[1]}' target='_blank'><i data-lucide='linkedin' class='w-5 h-5 text-blue-500'></i></a></p>
+                            </div>
+                            <div class='flex flex-col items-center gap-4'>
+                                <img class='object-cover rounded-lg shadow-lg side-avatar w-[20vw] max-w-40 h-auto right-avatar' src='${images[2]}'>
+                                <p class='text-lg opacity-50 right-caption text-white drop-shadow-lg'>${names[2]}</p>
+                            </div>
+                            
+                            <button class='absolute right-4 p-4 bg-blue-600 rounded-full hover:bg-blue-700 z-10 shadow-md transition duration-300 nextBtn'>
+                                <i data-lucide='chevron-right' class='w-8 h-8 text-white'></i>
+                            </button>
+                        </div>
+                    </div>
+                `);
+            }
+        </script>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+        });
+
+        const carousels = document.querySelectorAll(".relative");
+        carousels.forEach((carousel, index) => {
+            const images = ["/IMG_6512.png", "/IMG_6513.PNG", "/IMG_6514.PNG"];
+            const names = ["John Doe", "Jane Smith", "Alex Johnson"];
+            const linkedinLinks = ["#", "#", "#"];
+            let currentIndex = 1;
+
+            const mainAvatar = carousel.querySelector(".main-avatar");
+            const leftAvatar = carousel.querySelector(".left-avatar");
+            const rightAvatar = carousel.querySelector(".right-avatar");
+            const mainCaption = carousel.querySelector(".main-caption");
+            const leftCaption = carousel.querySelector(".left-caption");
+            const rightCaption = carousel.querySelector(".right-caption");
+
+            carousel.querySelector(".nextBtn").addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateCarousel();
+            });
+            
+            carousel.querySelector(".prevBtn").addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateCarousel();
+            });
+
+            function updateCarousel() {
+                mainAvatar.style.opacity = "0";
+                leftAvatar.style.opacity = "0";
+                rightAvatar.style.opacity = "0";
+
+                setTimeout(() => {
+                    mainAvatar.src = images[currentIndex];
+                    leftAvatar.src = images[(currentIndex - 1 + images.length) % images.length];
+                    rightAvatar.src = images[(currentIndex + 1) % images.length];
+
+                    mainCaption.innerHTML = `${names[currentIndex]} <a href='${linkedinLinks[currentIndex]}' target='_blank'><i data-lucide='linkedin' class='w-5 h-5 text-blue-500'></i></a>`;
+                    leftCaption.textContent = names[(currentIndex - 1 + images.length) % images.length];
+                    rightCaption.textContent = names[(currentIndex + 1) % images.length];
+
+                    mainAvatar.style.opacity = "1";
+                    leftAvatar.style.opacity = "0.5";
+                    rightAvatar.style.opacity = "0.5";
+                }, 400);
+            }
+        });
+
+        // Theme Toggle Functionality
+        document.getElementById("themeToggle").addEventListener("click", () => {
+            document.body.classList.toggle("bg-gray-900");
+            document.body.classList.toggle("text-white");
+        });
+    </script>
+</body>
+</html>
